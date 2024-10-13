@@ -124,6 +124,7 @@ export async function deleteProduct(id: string) {
 
   if (product == null) return notFound();
 
+  //刪除產品時一併unlink
   await fs.unlink(product.filePath);
   await fs.unlink(`public${product.imagePath}`);
 
